@@ -59,7 +59,7 @@ const createCollege = async function (req, res) {
           msg: `Fields can only be among these: ${requiredFields.join(", ")}`,
         });
     }
-    Checking if the logoLink is a valid or not
+    // Checking if the logoLink is a valid or not
     if (!isValidUrl(req.body.logoLink.trim())) {
       return res
         .status(400)

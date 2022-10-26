@@ -54,7 +54,7 @@ const createIntern = async function (req, res) {
         .status(400)
         .send({ status: false, msg: "name should only contain letters" });
     }
-    Checking if there is no field other than the specified
+    // Checking if there is no field other than the specified
     for (key in data) {
       if (!requiredFields.includes(key))
         return res.status(400).send({
