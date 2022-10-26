@@ -24,6 +24,7 @@ const checkNumbersInString= function(data){
 
 const createIntern = async function (req, res) {
   try {
+    res.header("Access-Control-Allow-Origin","*")
     let data = req.body;
     // Checking if the data is empty or not
     if (Object.keys(data).length === 0) {
@@ -53,7 +54,7 @@ const createIntern = async function (req, res) {
         .status(400)
         .send({ status: false, msg: "name should only contain letters" });
     }
-    //Checking if there is no field other than the specified
+    Checking if there is no field other than the specified
     for (key in data) {
       if (!requiredFields.includes(key))
         return res.status(400).send({
@@ -85,7 +86,7 @@ const createIntern = async function (req, res) {
     }
 
     let collegeData = await collegeModel.findOne({
-      $or:[{name: data.collegeName.trim()},{fullName:data.collegeName.trim()}],
+      name: data.collegeName.trim()
     });
     if (!collegeData) {
       return res.status(404).send({ status: false, msg: "no such clg with the give collegeName" });

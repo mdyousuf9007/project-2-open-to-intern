@@ -10,7 +10,7 @@ const isValidString = function (data) {
 
 const isValidUrl = function (data) {
   const urlRegex =
-    /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/;
+    /(https?:\/\/(?:www\.)?[\w+-_.0-9@\/]+logo.(?:png|jpg|jpeg))/i;
   return urlRegex.test(data);
 };
 
@@ -59,7 +59,7 @@ const createCollege = async function (req, res) {
           msg: `Fields can only be among these: ${requiredFields.join(", ")}`,
         });
     }
-    // Checking if the logoLink is a valid or not
+    Checking if the logoLink is a valid or not
     if (!isValidUrl(req.body.logoLink.trim())) {
       return res
         .status(400)
@@ -88,6 +88,7 @@ const createCollege = async function (req, res) {
 
 async function getInterns(req, res) {
   try {
+    res.header("Access-Control-Allow-Origin","*")
     let data = req.query;
     // Checking if the data is empty or not
     if (Object.keys(data).length === 0) {

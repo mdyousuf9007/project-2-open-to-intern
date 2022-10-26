@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 mongoose
   .connect(
-    "mongodb+srv://Firoz_Shaik_:XaFPzUPEGu5fK1KS@cluster0.dshhzz6.mongodb.net/group44Database-DB",
+    "mongodb+srv://mdyousuf9007:yousuf9007@cluster0.0ldwd.mongodb.net/project-2-intern",
     { useNewUrlParser: true }
   )
   .then(() => {
@@ -20,6 +20,6 @@ mongoose
 
 app.use("/", route);
 
-app.listen(3000, () => {
-  console.log("Express app running on server:" + 3000);
+app.listen(3001, () => {
+  console.log("Express app running on server:" + 3001);
 });
